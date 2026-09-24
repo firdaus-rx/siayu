@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>SPI DPMPTSP Kabupaten Pidie — Sistem Pengawasan Kepatuhan</title>
+  <title>SIAYU — Sistem Pengawasan Kepatuhan</title>
   <meta name="description" content="Sistem Pengawasan Kepatuhan DPMPTSP Kabupaten Pidie — daftar list sanksi pencabutan & usulan pencabutan perizinan berusaha. Integrasi OCR & cetak SP/rekap." />
   <meta name="theme-color" content="#8b1c13" />
   <link rel="icon" href="{{ asset('guest/assets/favicon.ico') }}" sizes="any" />
