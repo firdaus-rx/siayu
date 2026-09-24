@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SPI DPMPTSP — Installer VPS Linux (Ubuntu/Debian) — Nginx + PHP-FPM 8.2 + SQLite + OCR
+# SIAYU — Installer VPS Linux (Ubuntu/Debian) — Nginx + PHP-FPM 8.2 + SQLite + OCR
 # Single-stage: langsung inti, tanpa Docker.
 # Sumber: clone → install deps → build → nginx → systemd → Cloudflare Tunnel
 set -euo pipefail
@@ -107,7 +107,7 @@ fi
 # Isi APP_URL & PORT
 if grep -q "^APP_URL=" .env; then sed -i "s|^APP_URL=.*|APP_URL=$APP_URL|" .env; else echo "APP_URL=$APP_URL" >> .env; fi
 if grep -q "^APP_PORT=" .env; then sed -i "s|^APP_PORT=.*|APP_PORT=$APP_PORT|" .env; else echo "APP_PORT=$APP_PORT" >> .env; fi
-if grep -q "^APP_NAME=" .env; then sed -i "s|^APP_NAME=.*|APP_NAME=\"SPI DPMPTSP\"|" .env; else echo 'APP_NAME="SPI DPMPTSP"' >> .env; fi
+if grep -q "^APP_NAME=" .env; then sed -i "s|^APP_NAME=.*|APP_NAME=\"SIAYU\"|" .env; else echo 'APP_NAME="SIAYU"' >> .env; fi
 # APP_KEY
 if ! grep -q "APP_KEY=base64" .env 2>/dev/null || grep -q "^APP_KEY=$" .env 2>/dev/null; then
   log "Generate APP_KEY..."
@@ -249,7 +249,7 @@ systemctl is-active --quiet php${PHP_VERSION}-fpm && log "PHP-FPM OK" || warn "F
 log "8/8 — Verifikasi"
 echo ""
 echo "────────────────────────────────────────────────"
-echo "  SPI DPMPTSP — VPS Nginx (tanpa Docker)"
+echo "  SIAYU — VPS Nginx (tanpa Docker)"
 echo "────────────────────────────────────────────────"
 echo "  App:     $APP_DIR"
 echo "  URL:     $APP_URL (APP_PORT=$APP_PORT → nginx $APP_PORT)"

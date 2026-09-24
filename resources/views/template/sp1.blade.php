@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <title>Surat Teguran I - SIAYU</title>
@@ -20,7 +21,9 @@
             padding: 0;
         }
 
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
         }
 
@@ -28,7 +31,8 @@
         .kop-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 0px; /* Menghilangkan jarak bawah tabel kop */
+            margin-bottom: 0px;
+            /* Menghilangkan jarak bawah tabel kop */
         }
 
         .kop-logo {
@@ -41,7 +45,8 @@
         .kop-text {
             text-align: center;
             vertical-align: middle;
-            line-height: 1.1; /* Membuat jarak antar baris teks lebih rapat */
+            line-height: 1.1;
+            /* Membuat jarak antar baris teks lebih rapat */
         }
 
         .kop-text .header-1 {
@@ -53,14 +58,16 @@
 
         .kop-text .header-2 {
             font-size: 16pt;
-            font-weight: 900; /* Dibuat lebih tebal secara maksimal */
+            font-weight: 900;
+            /* Dibuat lebih tebal secara maksimal */
             letter-spacing: 0.5px;
             margin: 1px 0 0 0;
         }
 
         .kop-text .header-3 {
             font-size: 16pt;
-            font-weight: 900; /* Dibuat lebih tebal secara maksimal */
+            font-weight: 900;
+            /* Dibuat lebih tebal secara maksimal */
             letter-spacing: 0.5px;
             margin: 1px 0 0 0;
         }
@@ -78,7 +85,8 @@
             border-bottom: 1px solid #000;
             height: 2px;
             margin-top: 4px;
-            margin-bottom: 10px; /* Merapatkan jarak dari garis kop ke isi surat */
+            margin-bottom: 10px;
+            /* Merapatkan jarak dari garis kop ke isi surat */
         }
 
         /* Metadata & Tujuan */
@@ -192,7 +200,8 @@
         .ttd-right {
             width: 55%;
             margin-left: 60%;
-            text-align: left; /* Diubah dari center ke left */
+            text-align: left;
+            /* Diubah dari center ke left */
         }
 
         .ttd-nama {
@@ -238,9 +247,10 @@
         }
     </style>
 </head>
+
 <body>
 
-   <!-- KOP SURAT -->
+    <!-- KOP SURAT -->
     <table class="kop-table">
         <tr>
             <td class="kop-logo">
@@ -285,7 +295,7 @@
                         <td class="colon">:</td>
                         <td>
                             <b>Teguran I (pertama) Kepada Pelaku Usaha<br>
-                            Yang Belum Menyampaikan LKPM<br>
+                                Yang Belum Menyampaikan LKPM<br>
                             </b>
                         </td>
                     </tr>
@@ -295,19 +305,19 @@
                 {{ $meta['tempat'] ?? 'Sigli' }}, {{ $meta['tanggal'] ?? '24 Oktober 2022' }}<br><br>
                 Kepada YTH:<br>
                 @if(isset($items) && $items->count())
-                    <ol style="padding-left: 20px; margin-top: 2px; margin-bottom: 0; list-style-type: decimal;">
-                        @foreach($items as $it)
-                            <li>{{ $it->nama_pelaku_usaha ?? 'Pelaku Usaha' }}</li>
-                        @endforeach
-                    </ol>
+                <ol style="padding-left: 20px; margin-top: 2px; margin-bottom: 0; list-style-type: decimal;">
+                    @foreach($items as $it)
+                    <li>{{ $it->nama_pelaku_usaha ?? 'Pelaku Usaha' }}</li>
+                    @endforeach
+                </ol>
                 @else
-                    <ol style="padding-left: 20px; margin-top: 2px; margin-bottom: 0; list-style-type: decimal;">
-                    </ol>
+                <ol style="padding-left: 20px; margin-top: 2px; margin-bottom: 0; list-style-type: decimal;">
+                </ol>
                 @endif
                 <div style="margin-top: 4px; ">Masing-masing</div>
                 @if(isset($items) && $items->count() === 1)
                 @else
-                    <div>tempat</div>
+                <div>tempat</div>
                 @endif
             </td>
         </tr>
@@ -399,11 +409,11 @@
             </ol>
         </div>
         @if(isset($items) && $items->count())
-            <div style="margin-top:10px; font-size:8pt; color:#555; border-top:1px dotted #999; padding-top:6px;">
-                Dicetak dari data sanksi administratif — {{ $items->count() }} pelaku usaha
-                · No {{ $meta['nomor'] ?? '-' }}
-                · {{ now()->format('d/m/Y H:i') }}
-            </div>
+        <div style="margin-top:10px; font-size:8pt; color:#555; border-top:1px dotted #999; padding-top:6px;">
+            Dicetak dari data sanksi administratif — {{ $items->count() }} pelaku usaha
+            · No {{ $meta['nomor'] ?? '-' }}
+            · {{ now()->format('d/m/Y H:i') }}
+        </div>
         @endif
     </div>
 
@@ -418,7 +428,9 @@
             display: flex;
             gap: 8px;
         }
-        .print-toolbar button, .print-toolbar a {
+
+        .print-toolbar button,
+        .print-toolbar a {
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -431,17 +443,25 @@
             border: 1px solid #e5e7eb;
             background: #fff;
             color: #374151;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
             cursor: pointer;
         }
+
         .print-toolbar .primary {
             background: #2563eb;
             color: #fff;
             border-color: #1d4ed8;
         }
+
         @media print {
-            .print-toolbar { display: none !important; }
-            @page { size: 215mm 330mm; margin: 0 20mm 15mm 20mm; }
+            .print-toolbar {
+                display: none !important;
+            }
+
+            @page {
+                size: 215mm 330mm;
+                margin: 0 20mm 15mm 20mm;
+            }
         }
     </style>
     <div class="print-toolbar">
@@ -451,4 +471,5 @@
     @endif
 
 </body>
+
 </html>

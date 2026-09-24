@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="id">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -15,7 +16,9 @@
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { sans: ['Montserrat', 'system-ui', 'sans-serif'] },
+          fontFamily: {
+            sans: ['Montserrat', 'system-ui', 'sans-serif']
+          },
           colors: {
             'oss-base-black': '#0F172A',
             'oss-base-white': '#FFFFFF',
@@ -27,32 +30,136 @@
             'primary-600': '#8b1c13',
             'primary-700': '#74160f',
           },
-          maxWidth: { '1920': '1920px' },
+          maxWidth: {
+            '1920': '1920px'
+          },
         },
       },
     };
   </script>
   <style>
-    body { font-family: 'Montserrat', system-ui, sans-serif; }
-    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-    :where(a, button, input, [tabindex]):focus-visible { outline: 2px solid #8b1c13; outline-offset: 2px; border-radius: 6px; }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .gradient-left, .gradient-right { position: absolute; top: 0; bottom: 0; width: 80px; pointer-events: none; z-index: 10; }
-    .gradient-left { left: 0; background: linear-gradient(to right, #fff, transparent); }
-    .gradient-right { right: 0; background: linear-gradient(to left, #fff, transparent); }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-100%); } }
-    .marquee-track { animation: marquee 60s linear infinite; will-change: transform; }
-    @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
-    .font-system { font-family: ui-sans-serif, system-ui, sans-serif; }
-    .slider-track { position: absolute; inset: 0; display: flex; width: 100%; height: 100%; animation: slide 12s ease-in-out infinite; }
-    .slider-slide { position: relative; flex: 0 0 100%; min-width: 100%; height: 100%; overflow: hidden; }
-    @keyframes slide { 0%, 45% { transform: translateX(0); } 55%, 95% { transform: translateX(-100%); } 100% { transform: translateX(0); } }
-    .slider-dot { width: 8px; height: 8px; border-radius: 9999px; background: rgba(255,255,255,0.4); transition: background 200ms; }
-    .slider-dot[aria-current="true"] { background: #8b1c13; }
-    @media (prefers-reduced-motion: reduce) { .slider-track { animation: none; } }
+    body {
+      font-family: 'Montserrat', system-ui, sans-serif;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    :where(a, button, input, [tabindex]):focus-visible {
+      outline: 2px solid #8b1c13;
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .gradient-left,
+    .gradient-right {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .gradient-left {
+      left: 0;
+      background: linear-gradient(to right, #fff, transparent);
+    }
+
+    .gradient-right {
+      right: 0;
+      background: linear-gradient(to left, #fff, transparent);
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    .marquee-track {
+      animation: marquee 60s linear infinite;
+      will-change: transform;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track {
+        animation: none;
+      }
+    }
+
+    .font-system {
+      font-family: ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .slider-track {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      animation: slide 12s ease-in-out infinite;
+    }
+
+    .slider-slide {
+      position: relative;
+      flex: 0 0 100%;
+      min-width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    @keyframes slide {
+
+      0%,
+      45% {
+        transform: translateX(0);
+      }
+
+      55%,
+      95% {
+        transform: translateX(-100%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.4);
+      transition: background 200ms;
+    }
+
+    .slider-dot[aria-current="true"] {
+      background: #8b1c13;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .slider-track {
+        animation: none;
+      }
+    }
   </style>
 </head>
+
 <body class="bg-white text-oss-base-black min-h-screen">
   <!-- Top announcement -->
   <div class="bg-yellow-500">
@@ -71,7 +178,9 @@
 
   <header class="relative z-50 border-b border-oss-gray-25 bg-oss-gray-25 py-4">
     <div class="mx-auto max-w-[1920px] px-4 sm:px-10 md:px-16 lg:px-24 xl:px-32 flex items-center justify-between">
-      <div class="flex items-center space-x-2"><span class="ti ti-device-mobile"></span><div class="text-sm font-normal hover:underline cursor-pointer">SIAYU</div></div>
+      <div class="flex items-center space-x-2"><span class="ti ti-device-mobile"></span>
+        <div class="text-sm font-normal hover:underline cursor-pointer">SIAYU</div>
+      </div>
       <div class="flex items-center space-x-6">
         <span class="text-sm font-semibold text-oss-base-black">ID</span>
         <span class="text-sm font-semibold text-oss-blue-500">Bantuan</span>
@@ -93,9 +202,9 @@
         </nav>
         <div class="flex items-center gap-2">
           @auth
-            <a href="{{ route('dashboard') }}" class="inline-flex items-center px-5 py-2 text-sm font-semibold rounded-md bg-primary text-white hover:bg-primary-700">Dashboard</a>
+          <a href="{{ route('dashboard') }}" class="inline-flex items-center px-5 py-2 text-sm font-semibold rounded-md bg-primary text-white hover:bg-primary-700">Dashboard</a>
           @else
-            <a href="{{ route('login') }}" class="inline-flex items-center px-5 py-2 text-sm font-semibold rounded-md bg-primary text-white hover:bg-primary-700">Masuk</a>
+          <a href="{{ route('login') }}" class="inline-flex items-center px-5 py-2 text-sm font-semibold rounded-md bg-primary text-white hover:bg-primary-700">Masuk</a>
           @endauth
         </div>
       </div>
@@ -124,9 +233,9 @@
           <p class="font-system mt-4 text-sm sm:text-base font-medium text-white/80">Kelola Daftar List Sanksi Pencabutan &amp; Usulan Pencabutan Perizinan Berusaha — OCR PDF, validasi NIB, dan cetak SP/Rekap langsung.</p>
           <div class="mt-8 flex flex-wrap gap-3">
             @auth
-              <a href="{{ route('dashboard') }}" class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-bold text-[#8b1c13] hover:bg-white/90">Ke Dashboard <span class="ti ti-arrow-right"></span></a>
+            <a href="{{ route('dashboard') }}" class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-bold text-[#8b1c13] hover:bg-white/90">Ke Dashboard <span class="ti ti-arrow-right"></span></a>
             @else
-              <a href="{{ route('login') }}" class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-bold text-[#8b1c13] hover:bg-white/90">Masuk <span class="ti ti-arrow-right"></span></a>
+            <a href="{{ route('login') }}" class="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-bold text-[#8b1c13] hover:bg-white/90">Masuk <span class="ti ti-arrow-right"></span></a>
             @endauth
             <a href="#layanan" class="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/20">Pelajari Layanan</a>
           </div>
@@ -151,9 +260,9 @@
           <p class="mt-3 text-sm leading-relaxed text-gray-600">Impor PDF sanksi, ekstrak otomatis (NIB, alamat, skala, penanaman modal) via OCR, lalu cetak SP per data &amp; rekap tabel 6 kolom langsung dari filter — semua terintegrasi di satu dashboard.</p>
           <div class="mt-5 flex flex-wrap gap-2">
             @auth
-              <a href="{{ route('sanksi-administratif.index') }}" class="inline-flex items-center gap-2 rounded-lg bg-[#8b1c13] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#74160f]">Kelola Usulan <span class="ti ti-arrow-right"></span></a>
+            <a href="{{ route('sanksi-administratif.index') }}" class="inline-flex items-center gap-2 rounded-lg bg-[#8b1c13] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#74160f]">Kelola Usulan <span class="ti ti-arrow-right"></span></a>
             @else
-              <a href="{{ route('login') }}" class="inline-flex items-center gap-2 rounded-lg bg-[#8b1c13] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#74160f]">Masuk <span class="ti ti-arrow-right"></span></a>
+            <a href="{{ route('login') }}" class="inline-flex items-center gap-2 rounded-lg bg-[#8b1c13] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#74160f]">Masuk <span class="ti ti-arrow-right"></span></a>
             @endauth
             <span class="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-sm font-semibold text-gray-700">NIB · Skala · Lokasi</span>
           </div>
@@ -164,7 +273,10 @@
       <section class="relative py-10">
         <div class="absolute inset-0 overflow-hidden rounded-xl"><img src="{{ asset('guest/assets/images/spiral-bg.svg') }}" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover" /></div>
         <div class="relative mx-auto rounded-xl border border-gray-200 bg-white/90 p-6 shadow-sm md:flex md:items-center md:justify-between backdrop-blur">
-          <div class="md:w-2/5"><h2 class="text-lg font-bold text-[#8b1c13]">Perizinan Berbasis Risiko — 4 tingkat risiko menentukan sanksi &amp; pencabutan.</h2><p class="mt-2 text-sm text-gray-600">Pantau sebaran Risiko Rendah → Tinggi serta Skala Usaha Mikro → Besar langsung di dashboard analitik.</p></div>
+          <div class="md:w-2/5">
+            <h2 class="text-lg font-bold text-[#8b1c13]">Perizinan Berbasis Risiko — 4 tingkat risiko menentukan sanksi &amp; pencabutan.</h2>
+            <p class="mt-2 text-sm text-gray-600">Pantau sebaran Risiko Rendah → Tinggi serta Skala Usaha Mikro → Besar langsung di dashboard analitik.</p>
+          </div>
           <div class="mt-4 md:mt-0 md:w-2/5 md:text-right"><a href="{{ route('login') }}" class="inline-block rounded-lg border border-oss-blue-500 bg-white px-5 py-2.5 font-semibold text-oss-blue-500 hover:bg-oss-blue-500 hover:text-white">Masuk Dashboard</a></div>
         </div>
       </section>
@@ -173,9 +285,21 @@
       <section id="pengawasan" class="py-8">
         <h2 class="text-lg font-bold md:text-xl">Fitur Utama</h2>
         <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="rounded-xl border border-gray-200 p-5"><div class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50 text-amber-600"><span class="ti ti-list"></span></div><h3 class="mt-3 font-semibold">Daftar List Sanksi Pencabutan</h3><p class="mt-1 text-sm text-gray-500">Kelola pengawasan lengkap dengan risiko &amp; status sanksi.</p></div>
-          <div class="rounded-xl border border-gray-200 p-5"><div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary"><span class="ti ti-scale"></span></div><h3 class="mt-3 font-semibold">Usulan Pencabutan PB</h3><p class="mt-1 text-sm text-gray-500">OCR NIB/alamat terintegrasi.</p></div>
-          <div class="rounded-xl border border-gray-200 p-5"><div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-900 text-white"><span class="ti ti-printer"></span></div><h3 class="mt-3 font-semibold">Cetak SP &amp; Rekap</h3><p class="mt-1 text-sm text-gray-500">Checklist → stream PDF F4 &amp; landscape 6 kolom.</p></div>
+          <div class="rounded-xl border border-gray-200 p-5">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50 text-amber-600"><span class="ti ti-list"></span></div>
+            <h3 class="mt-3 font-semibold">Daftar List Sanksi Pencabutan</h3>
+            <p class="mt-1 text-sm text-gray-500">Kelola pengawasan lengkap dengan risiko &amp; status sanksi.</p>
+          </div>
+          <div class="rounded-xl border border-gray-200 p-5">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary"><span class="ti ti-scale"></span></div>
+            <h3 class="mt-3 font-semibold">Usulan Pencabutan PB</h3>
+            <p class="mt-1 text-sm text-gray-500">OCR NIB/alamat terintegrasi.</p>
+          </div>
+          <div class="rounded-xl border border-gray-200 p-5">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-900 text-white"><span class="ti ti-printer"></span></div>
+            <h3 class="mt-3 font-semibold">Cetak SP &amp; Rekap</h3>
+            <p class="mt-1 text-sm text-gray-500">Checklist → stream PDF F4 &amp; landscape 6 kolom.</p>
+          </div>
         </div>
       </section>
 
@@ -185,7 +309,7 @@
           <div class="gradient-left" aria-hidden="true"></div>
           <div class="marquee-track flex min-w-full items-center">
             @foreach (['kemenhukum.svg','kemenbud.svg','kemenkop.svg','kemenpora.svg','kemhan.png','kemensos.svg','kemenkop.svg'] as $logo)
-              <img src="{{ asset('guest/assets/logos/' . $logo) }}" alt="" loading="lazy" class="mx-5 h-10 w-auto grayscale opacity-70" />
+            <img src="{{ asset('guest/assets/logos/' . $logo) }}" alt="" loading="lazy" class="mx-5 h-10 w-auto grayscale opacity-70" />
             @endforeach
           </div>
           <div class="gradient-right" aria-hidden="true"></div>
@@ -205,9 +329,9 @@
         <div class="flex flex-col gap-2">
           <div class="text-sm font-bold text-white">Akses Sistem</div>
           @auth
-            <a href="{{ route('dashboard') }}" class="text-sm text-white hover:underline">Dashboard</a>
+          <a href="{{ route('dashboard') }}" class="text-sm text-white hover:underline">Dashboard</a>
           @else
-            <a href="{{ route('login') }}" class="text-sm text-white hover:underline">Masuk</a>
+          <a href="{{ route('login') }}" class="text-sm text-white hover:underline">Masuk</a>
           @endauth
           <a href="{{ url('/guest/index.html') }}" class="text-sm text-white/70 hover:underline">Versi Guest Statis</a>
         </div>
@@ -217,7 +341,7 @@
 
   <script>
     document.querySelector('.bg-yellow-500 button[aria-label="Tutup pengumuman"]')?.addEventListener('click', (e) => e.currentTarget.closest('.bg-yellow-500').remove());
-    (function () {
+    (function() {
       const slider = document.getElementById('nib-slider');
       if (!slider) return;
       const track = slider.querySelector('.slider-track');
@@ -225,14 +349,39 @@
       let current = 0;
       let timer = null;
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      function goTo(i) { current = (i + dots.length) % dots.length; track.style.transform = `translateX(-${current * 100}%)`; dots.forEach((d, idx) => d.setAttribute('aria-current', idx === current ? 'true' : 'false')); }
-      function start() { if (reduce) return; stop(); timer = setInterval(() => goTo(current + 1), 4000); }
-      function stop() { if (timer) { clearInterval(timer); timer = null; } }
-      dots.forEach((dot, idx) => dot.addEventListener('click', () => { goTo(idx); start(); }));
+
+      function goTo(i) {
+        current = (i + dots.length) % dots.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((d, idx) => d.setAttribute('aria-current', idx === current ? 'true' : 'false'));
+      }
+
+      function start() {
+        if (reduce) return;
+        stop();
+        timer = setInterval(() => goTo(current + 1), 4000);
+      }
+
+      function stop() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+      dots.forEach((dot, idx) => dot.addEventListener('click', () => {
+        goTo(idx);
+        start();
+      }));
       slider.addEventListener('mouseenter', stop);
       slider.addEventListener('mouseleave', start);
-      if ('IntersectionObserver' in window) { const io = new IntersectionObserver((entries) => entries.forEach((e) => e.isIntersecting ? start() : stop()), { threshold: 0.3 }); io.observe(slider); } else start();
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => entries.forEach((e) => e.isIntersecting ? start() : stop()), {
+          threshold: 0.3
+        });
+        io.observe(slider);
+      } else start();
     })();
   </script>
 </body>
+
 </html>

@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    container_name: spi-dpmptsp-app
+    container_name: siayu-app
     restart: unless-stopped
     ports:
       - "${APP_PORT:-8050}:${APP_PORT:-8050}"

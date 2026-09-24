@@ -1,4 +1,4 @@
-# SPI DPMPTSP Kabupaten Pidie
+# SIAYU Kabupaten Pidie
 
 Sistem Pengawasan Kepatuhan — **Daftar List Sanksi Pencabutan** & **Usulan Pencabutan Perizinan Berusaha** (OCR PDF, cetak SP1 & Rekap).
 
@@ -33,7 +33,7 @@ cd siayu
 cp .env.example .env
 nano .env
 # Wajib:
-# APP_NAME="SPI DPMPTSP"
+# APP_NAME="SIAYU"
 # APP_ENV=production
 # APP_DEBUG=false
 # APP_URL=https://dpmptsp.pidie.pipay.id
