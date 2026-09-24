@@ -26,8 +26,8 @@ Image single-stage `php:8.2-cli` — `artisan serve 0.0.0.0:8000`, tanpa Nginx t
 
 ```bash
 # 1. Clone
-git clone https://github.com/firdaus-rx/SPI-DPMPTSP.git spi-dpmptsp
-cd spi-dpmptsp
+git clone https://github.com/firdaus-rx/siayu.git siayu
+cd siayu
 
 # 2. Env
 cp .env.example .env
@@ -80,8 +80,8 @@ Installer `scripts/install-vps-nginx.sh` — Nginx + PHP-FPM auto-detect `8.2/8.
 
 ```bash
 # Clone dahulu (atau langsung curl installer)
-git clone https://github.com/firdaus-rx/SPI-DPMPTSP.git /var/www/spi-dpmptsp
-cd /var/www/spi-dpmptsp
+git clone https://github.com/firdaus-rx/siayu.git /var/www/siayu
+cd /var/www/siayu
 
 # Install (butuh root)
 sudo bash scripts/install-vps-nginx.sh
@@ -94,13 +94,13 @@ sudo APP_PORT=8050 DOMAIN=dpmptsp.pidie.pipay.id \
 # Cek
 curl -I http://127.0.0.1:8050/login
 systemctl status nginx php*-fpm
-tail -n 50 /var/www/spi-dpmptsp/storage/logs/laravel.log
+tail -n 50 /var/www/siayu/storage/logs/laravel.log
 ```
 
 Update:
 
 ```bash
-cd /var/www/spi-dpmptsp
+cd /var/www/siayu
 git pull origin main
 sudo bash scripts/install-vps-nginx.sh
 ```
@@ -146,7 +146,7 @@ docker compose exec app tesseract --list-langs | grep -E 'ind|eng'
 docker compose exec app cat storage/logs/laravel.log | tail -n 80
 
 # VPS
-tail -n 80 /var/www/spi-dpmptsp/storage/logs/laravel.log
+tail -n 80 /var/www/siayu/storage/logs/laravel.log
 php artisan route:list --path=sanksi
 tesseract --list-langs | grep -E 'ind|eng'
 pdftoppm -v 2>&1 | head -n 1
