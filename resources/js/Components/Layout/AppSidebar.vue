@@ -15,10 +15,10 @@
             <div
                 class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm ring-1 ring-white/10"
             >
-                <img src="/logo-pidie.svg" alt="Logo SPI DPMPTSP" class="h-4 w-4 object-contain" />
+                <img src="/logo-pidie.svg" alt="Logo SIAYU" class="h-4 w-4 object-contain" />
             </div>
             <div v-if="expanded" class="min-w-0 flex-1 leading-none">
-                <h1 class="truncate text-xs font-bold tracking-tight text-white">SPI DPMPTSP</h1>
+                <h1 class="truncate text-xs font-bold tracking-tight text-white">SIAYU</h1>
                 <p class="truncate text-[10px] font-medium text-white/50">Kab. Pidie</p>
             </div>
             <button

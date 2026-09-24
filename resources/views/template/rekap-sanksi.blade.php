@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Rekap Usulan Pencabutan Perizinan Berusaha — DPMPTSP Kabupaten Pidie</title>
+    <title>Rekap Usulan Pencabutan Perizinan Berusaha — SIAYU</title>
     <style>
         @page { size: 330mm 215mm landscape; margin: 12mm 14mm 12mm 14mm; }
         * { box-sizing: border-box; }

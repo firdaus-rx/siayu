@@ -113,7 +113,7 @@
                         </span>
                         <div class="min-w-0">
                             <p class="truncate text-sm font-semibold text-gray-900">{{ authUser?.name ?? 'Administrator' }}</p>
-                            <p class="truncate text-xs text-gray-500">{{ authUser?.email ?? 'SPI DPMPTSP' }}</p>
+                            <p class="truncate text-xs text-gray-500">{{ authUser?.email ?? 'SIAYU' }}</p>
                         </div>
                     </div>
                     <div class="p-2">

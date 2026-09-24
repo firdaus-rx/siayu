@@ -1,5 +1,5 @@
 <template>
-    <Head title="Masuk — SPI DPMPTSP" />
+    <Head title="Masuk — SIAYU" />
     <div class="min-h-screen bg-white flex flex-col lg:flex-row">
         <!-- Left — branding (desktop) -->
         <div class="hidden lg:flex lg:w-[46%] xl:w-[42%] relative overflow-hidden bg-primary-600 flex-col justify-between">
@@ -12,12 +12,12 @@
                     <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-white p-1.5 shadow-lg ring-1 ring-white/20">
                         <img src="/logo-pidie.svg" alt="Logo Pidie" class="h-6 w-6 object-contain" />
                     </span>
-                    <span class="text-sm font-bold leading-none">SPI DPMPTSP<br><span class="text-xs font-medium text-white/70">Kabupaten Pidie</span></span>
+                    <span class="text-sm font-bold leading-none">SIAYU<br><span class="text-xs font-medium text-white/70">Kabupaten Pidie</span></span>
                 </a>
             </div>
 
             <div class="relative px-10 xl:px-12 pb-6">
-                <p class="text-xs font-semibold tracking-[0.18em] text-white/60">SISTEM PENGAWASAN KEPATUHAN</p>
+                <p class="text-xs font-semibold tracking-[0.18em] text-white/60">Sistem Informasi Aduan Yanlik Unggulan</p>
                 <h1 class="mt-3 text-[32px] xl:text-[36px] font-bold leading-[1.05] tracking-tight text-white">
                     Satu pintu<br>
                     <span class="text-white/80">untuk sanksi &amp; pengawasan.</span>
@@ -37,7 +37,7 @@
                     <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-white p-1 shadow-sm ring-1 ring-gray-200">
                         <img src="/logo-pidie.svg" alt="Logo" class="h-5 w-5 object-contain" />
                     </span>
-                    <span class="text-sm font-bold leading-none text-gray-900">SPI DPMPTSP<span class="ml-1 text-xs font-normal text-gray-500">Pidie</span></span>
+                    <span class="text-sm font-bold leading-none text-gray-900">SIAYU<span class="ml-1 text-xs font-normal text-gray-500">Pidie</span></span>
                 </a>
                 <a href="/" class="hidden lg:inline-flex items-center gap-1.5 text-xs font-semibold text-gray-400 hover:text-gray-600">
                     <ArrowLeft :size="14" /> Kembali ke beranda

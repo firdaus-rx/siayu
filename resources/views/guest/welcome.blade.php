@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>SIAYU — Sistem Pengawasan Kepatuhan</title>
-  <meta name="description" content="Sistem Pengawasan Kepatuhan DPMPTSP Kabupaten Pidie — daftar list sanksi pencabutan & usulan pencabutan perizinan berusaha. Integrasi OCR & cetak SP/rekap." />
+  <title>SIAYU — Sistem Informasi Aduan Yanlik Unggulan</title>
+  <meta name="description" content="Sistem Informasi Aduan Yanlik Unggulan — daftar list sanksi pencabutan & usulan pencabutan perizinan berusaha. Integrasi OCR & cetak SP/rekap." />
   <meta name="theme-color" content="#8b1c13" />
   <link rel="icon" href="{{ asset('guest/assets/favicon.ico') }}" sizes="any" />
   <link rel="stylesheet" href="{{ asset('guest/assets/montserrat.css') }}" />
@@ -61,7 +61,7 @@
         <div class="col-span-11 flex items-center">
           <span class="material-symbols-outlined" aria-hidden="true">campaign</span>
           <div class="ml-4 text-start text-xs font-semibold">
-            <p>Sistem Pengawasan Kepatuhan DPMPTSP Kabupaten Pidie — kelola daftar list sanksi pencabutan &amp; usulan pencabutan perizinan berusaha terintegrasi OCR.</p>
+            <p>Sistem Informasi Aduan Yanlik Unggulan DPMPTSP Kabupaten Pidie — kelola daftar list sanksi pencabutan &amp; usulan pencabutan perizinan berusaha terintegrasi OCR.</p>
           </div>
         </div>
         <button type="button" aria-label="Tutup pengumuman" class="col-span-1 ml-auto ti ti-x text-lg" onclick="this.closest('.bg-yellow-500').remove()"></button>
@@ -71,7 +71,7 @@
 
   <header class="relative z-50 border-b border-oss-gray-25 bg-oss-gray-25 py-4">
     <div class="mx-auto max-w-[1920px] px-4 sm:px-10 md:px-16 lg:px-24 xl:px-32 flex items-center justify-between">
-      <div class="flex items-center space-x-2"><span class="ti ti-device-mobile"></span><div class="text-sm font-normal hover:underline cursor-pointer">SPI DPMPTSP Kabupaten Pidie</div></div>
+      <div class="flex items-center space-x-2"><span class="ti ti-device-mobile"></span><div class="text-sm font-normal hover:underline cursor-pointer">SIAYU</div></div>
       <div class="flex items-center space-x-6">
         <span class="text-sm font-semibold text-oss-base-black">ID</span>
         <span class="text-sm font-semibold text-oss-blue-500">Bantuan</span>
@@ -82,9 +82,9 @@
   <header class="sticky top-0 z-30 bg-white shadow" style="height:72px">
     <div class="mx-auto max-w-1920 px-4 sm:px-10 md:px-16 lg:px-24 xl:px-32">
       <div class="flex h-[72px] items-center justify-between gap-3">
-        <a href="{{ route('welcome') }}" class="flex shrink-0 items-center gap-3" aria-label="SPI DPMPTSP beranda">
+        <a href="{{ route('welcome') }}" class="flex shrink-0 items-center gap-3" aria-label="SIAYU beranda">
           <img src="{{ asset('logo-pidie.svg') }}" alt="Logo Pidie" class="h-9 w-auto" />
-          <span class="hidden sm:block text-sm font-bold leading-tight text-oss-base-black">SPI DPMPTSP<br><span class="text-xs font-normal text-oss-gray-500">Kabupaten Pidie</span></span>
+          <span class="hidden sm:block text-sm font-bold leading-tight text-oss-base-black">SIAYU<br><span class="text-xs font-normal text-oss-gray-500">Kabupaten Pidie</span></span>
         </a>
         <nav aria-label="Navigasi utama" class="hidden lg:flex items-center gap-1">
           <a href="{{ route('welcome') }}" class="px-3 py-2 text-sm font-semibold hover:text-oss-blue-500">Beranda</a>
@@ -120,7 +120,7 @@
         </figure>
         <div class="max-w-3xl order-last lg:order-none">
           <p class="text-sm font-semibold tracking-widest text-white/80">DPMPTSP KABUPATEN PIDIE</p>
-          <h1 id="hero-title" class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white">Sistem Pengawasan Kepatuhan<br><span class="text-white/90">Terintegrasi &amp; Akuntabel</span></h1>
+          <h1 id="hero-title" class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white">Sistem Informasi Aduan Yanlik Unggulan<br><span class="text-white/90">Terintegrasi &amp; Akuntabel</span></h1>
           <p class="font-system mt-4 text-sm sm:text-base font-medium text-white/80">Kelola Daftar List Sanksi Pencabutan &amp; Usulan Pencabutan Perizinan Berusaha — OCR PDF, validasi NIB, dan cetak SP/Rekap langsung.</p>
           <div class="mt-8 flex flex-wrap gap-3">
             @auth
@@ -198,7 +198,7 @@
     <div class="mx-auto max-w-1920 px-4 sm:px-10 md:px-16 lg:px-24 xl:px-32">
       <div class="flex flex-col justify-between gap-8 md:flex-row">
         <div class="flex-1 text-center md:text-left">
-          <p class="text-sm font-bold text-white">SPI DPMPTSP Kabupaten Pidie</p>
+          <p class="text-sm font-bold text-white">SIAYU Kabupaten Pidie</p>
           <p class="mt-2 text-sm text-white/80">Jln. Tgk. Chiek Direubee No.5 Sigli · Telp. (0653) 23399</p>
           <p class="mt-6 text-xs text-white/60">© {{ date('Y') }} DPMPTSP Kabupaten Pidie</p>
         </div>

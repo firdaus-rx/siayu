@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Surat Teguran I - DPMPTSP Kabupaten Pidie</title>
+    <title>Surat Teguran I - SIAYU</title>
     <style>
         @page {
             /* Ukuran standar F4 / Folio (215mm x 330mm) */
