@@ -28,7 +28,7 @@
                     Edit
                 </Link>
                 <button
-                    @click="handleDelete"
+                    @click="confirmHapus"
                     class="inline-flex items-center gap-2 bg-white border border-red-200 text-red-600 px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-red-50 transition-colors"
                 >
                     <Trash2 :size="16" />

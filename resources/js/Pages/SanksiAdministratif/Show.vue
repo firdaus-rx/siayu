@@ -8,7 +8,7 @@
             <div class="flex items-center gap-2 ml-11 sm:ml-0">
                 <a :href="`/sanksi-administratif/${sanksi.id}/sp1`" target="_blank" class="inline-flex items-center gap-2 bg-primary-600 text-white px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-primary-700 shadow-sm"><Printer :size="16" />Cetak SP1</a>
                 <Link :href="`/sanksi-administratif/${sanksi.id}/edit`" class="inline-flex items-center gap-2 bg-white border border-gray-200 text-gray-700 px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-gray-50"><Pencil :size="16" />Edit</Link>
-                <button @click="handleDelete" class="inline-flex items-center gap-2 bg-white border border-red-200 text-red-600 px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-red-50"><Trash2 :size="16" />Hapus</button>
+                <button @click="confirmHapus" class="inline-flex items-center gap-2 bg-white border border-red-200 text-red-600 px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-red-50"><Trash2 :size="16" />Hapus</button>
             </div>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">

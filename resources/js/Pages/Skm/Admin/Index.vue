@@ -124,7 +124,7 @@
                                     <Link :href="`/admin/skm/${item.id}`" class="inline-flex items-center gap-1 rounded-lg bg-primary-50 px-2.5 py-1.5 text-xs font-medium text-primary-700 hover:bg-primary-100">
                                         <Eye :size="12" /> Lihat
                                     </Link>
-                                    <button @click="hapus(item.id)" class="inline-flex items-center gap-1 rounded-lg bg-red-50 px-2.5 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100">
+                                    <button @click="confirmHapus(item.id)" class="inline-flex items-center gap-1 rounded-lg bg-red-50 px-2.5 py-1.5 text-xs font-medium text-red-700 hover:bg-red-100">
                                         <Trash2 :size="12" /> Hapus
                                     </button>
                                 </div>
