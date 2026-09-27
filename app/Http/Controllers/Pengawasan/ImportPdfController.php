@@ -103,7 +103,9 @@ class ImportPdfController extends Controller
 
         session()->forget(['import_results', 'import_filename']);
 
-        return redirect()->route('pengawasan.import')->with('success', "{$savedCount} data berhasil disimpan/diperbarui dari import PDF.");
+        toast_success("{$savedCount} data berhasil disimpan/diperbarui dari import PDF.");
+
+        return redirect()->route('pengawasan.import');
     }
 
     /**

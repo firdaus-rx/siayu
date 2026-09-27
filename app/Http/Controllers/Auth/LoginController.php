@@ -32,12 +32,14 @@ class LoginController extends Controller
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
+            toast_success('Selamat datang kembali!');
+
             return redirect()->intended(route('dashboard'));
         }
 
-        return back()->withErrors([
-            'email' => 'Email atau password tidak sesuai.',
-        ])->onlyInput('email');
+        toast_error('Email atau password tidak sesuai.');
+
+        return back()->onlyInput('email');
     }
 
     public function destroy(Request $request)

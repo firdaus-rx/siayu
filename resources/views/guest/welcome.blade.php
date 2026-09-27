@@ -197,7 +197,16 @@
         </a>
         <nav aria-label="Navigasi utama" class="hidden lg:flex items-center gap-1">
           <a href="{{ route('welcome') }}" class="px-3 py-2 text-sm font-semibold hover:text-oss-blue-500">Beranda</a>
-          <a href="#layanan" class="px-3 py-2 text-sm font-semibold hover:text-oss-blue-500">Layanan</a>
+          <div class="relative group">
+            <button type="button" class="px-3 py-2 text-sm font-semibold hover:text-oss-blue-500 flex items-center gap-1">
+              Layanan
+              <svg class="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="absolute left-0 top-full hidden group-hover:block min-w-[200px] bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+              <a href="{{ route('pengaduan.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-oss-blue-500">Pengaduan Masyarakat</a>
+              <a href="{{ route('skm.create') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-oss-blue-500">Survei Kepuasan</a>
+            </div>
+          </div>
           <a href="#pengawasan" class="px-3 py-2 text-sm font-semibold hover:text-oss-blue-500">Pengawasan</a>
         </nav>
         <div class="flex items-center gap-2">
@@ -300,6 +309,18 @@
             <h3 class="mt-3 font-semibold">Cetak SP &amp; Rekap</h3>
             <p class="mt-1 text-sm text-gray-500">Checklist → stream PDF F4 &amp; landscape 6 kolom.</p>
           </div>
+          <div class="rounded-xl border border-gray-200 p-5">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600"><span class="ti ti-message"></span></div>
+            <h3 class="mt-3 font-semibold">Pengaduan Masyarakat</h3>
+            <p class="mt-1 text-sm text-gray-500">Laporkan persoalan pelayanan publik.</p>
+            <a href="{{ route('pengaduan.create') }}" class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-oss-blue-500 hover:underline">Isi Form <span class="ti ti-arrow-right"></span></a>
+          </div>
+          <div class="rounded-xl border border-gray-200 p-5">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-green-50 text-green-600"><span class="ti ti-clipboard"></span></div>
+            <h3 class="mt-3 font-semibold">Survei Kepuasan</h3>
+            <p class="mt-1 text-sm text-gray-500">Ukur kepuasan terhadap pelayanan kami.</p>
+            <a href="{{ route('skm.create') }}" class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-oss-blue-500 hover:underline">Isi Survei <span class="ti ti-arrow-right"></span></a>
+          </div>
         </div>
       </section>
 
@@ -313,6 +334,62 @@
             @endforeach
           </div>
           <div class="gradient-right" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- Statistik Layanan Publik -->
+      <section id="statistik" class="py-10">
+        <h2 class="text-lg font-bold md:text-xl">Statistik Layanan Publik</h2>
+        <p class="mt-2 text-sm text-gray-500">Data pengaduan masyarakat dan hasil survei kepuasan terhadap pelayanan DPMPTSP Kabupaten Pidie</p>
+
+        <div class="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <!-- Statistik Pengaduan -->
+          <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h3 class="text-base font-semibold text-gray-900">Status Pengaduan Masyarakat</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-5">
+              <div class="rounded-lg bg-gray-50 p-3 text-center">
+                <p class="text-xl font-bold text-gray-900">{{ $pengaduanStats['total'] }}</p>
+                <p class="text-[10px] text-gray-500">Total</p>
+              </div>
+              <div class="rounded-lg bg-yellow-50 p-3 text-center">
+                <p class="text-xl font-bold text-yellow-600">{{ $pengaduanStats['pending'] }}</p>
+                <p class="text-[10px] text-yellow-600">Pending</p>
+              </div>
+              <div class="rounded-lg bg-blue-50 p-3 text-center">
+                <p class="text-xl font-bold text-blue-600">{{ $pengaduanStats['proses'] }}</p>
+                <p class="text-[10px] text-blue-600">Proses</p>
+              </div>
+              <div class="rounded-lg bg-green-50 p-3 text-center">
+                <p class="text-xl font-bold text-green-600">{{ $pengaduanStats['selesai'] }}</p>
+                <p class="text-[10px] text-green-600">Selesai</p>
+              </div>
+              <div class="rounded-lg bg-red-50 p-3 text-center">
+                <p class="text-xl font-bold text-red-600">{{ $pengaduanStats['tidak_dapat_ditindaklanjuti'] }}</p>
+                <p class="text-[10px] text-red-600">Tidak Dapat</p>
+              </div>
+            </div>
+            <div class="mt-4 h-48">
+              <canvas id="pengaduanChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Statistik SKM -->
+          <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+            <h3 class="text-base font-semibold text-gray-900">Survei Kepuasan Masyarakat (SKM)</h3>
+            <div class="mt-4 grid grid-cols-2 gap-3">
+              <div class="rounded-lg bg-gray-50 p-3 text-center">
+                <p class="text-xl font-bold text-gray-900">{{ $skmStats['total'] }}</p>
+                <p class="text-[10px] text-gray-500">Total Responden</p>
+              </div>
+              <div class="rounded-lg bg-primary/5 p-3 text-center">
+                <p class="text-xl font-bold text-primary">{{ $skmStats['rata_rata'] }}</p>
+                <p class="text-[10px] text-primary">Rata-rata Skor</p>
+              </div>
+            </div>
+            <div class="mt-4 h-48">
+              <canvas id="skmChart"></canvas>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -333,12 +410,17 @@
           @else
           <a href="{{ route('login') }}" class="text-sm text-white hover:underline">Masuk</a>
           @endauth
-          <a href="{{ url('/guest/index.html') }}" class="text-sm text-white/70 hover:underline">Versi Guest Statis</a>
+        </div>
+        <div class="flex flex-col gap-2">
+          <div class="text-sm font-bold text-white">Layanan Publik</div>
+          <a href="{{ route('pengaduan.create') }}" class="text-sm text-white hover:underline">Pengaduan Masyarakat</a>
+          <a href="{{ route('skm.create') }}" class="text-sm text-white hover:underline">Survei Kepuasan</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script>
     document.querySelector('.bg-yellow-500 button[aria-label="Tutup pengumuman"]')?.addEventListener('click', (e) => e.currentTarget.closest('.bg-yellow-500').remove());
     (function() {
@@ -380,6 +462,84 @@
         });
         io.observe(slider);
       } else start();
+    })();
+
+    // Grafik Statistik Pengaduan
+    (function() {
+      const ctx = document.getElementById('pengaduanChart');
+      if (!ctx) return;
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Pending', 'Proses', 'Selesai', 'Tidak Dapat'],
+          datasets: [{
+            label: 'Jumlah Pengaduan',
+            data: [
+              {{ $pengaduanStats['pending'] }},
+              {{ $pengaduanStats['proses'] }},
+              {{ $pengaduanStats['selesai'] }},
+              {{ $pengaduanStats['tidak_dapat_ditindaklanjuti'] }},
+            ],
+            backgroundColor: [
+              'rgba(234, 179, 8, 0.8)',
+              'rgba(59, 130, 246, 0.8)',
+              'rgba(34, 197, 94, 0.8)',
+              'rgba(239, 68, 68, 0.8)',
+            ],
+            borderColor: [
+              'rgb(234, 179, 8)',
+              'rgb(59, 130, 246)',
+              'rgb(34, 197, 94)',
+              'rgb(239, 68, 68)',
+            ],
+            borderWidth: 1,
+          }],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: { stepSize: 1 },
+            },
+          },
+        },
+      });
+    })();
+
+    // Grafik Statistik SKM
+    (function() {
+      const ctx = document.getElementById('skmChart');
+      if (!ctx) return;
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Total Responden', 'Rata-rata Skor'],
+          datasets: [{
+            data: [{{ $skmStats['total'] }}, {{ $skmStats['rata_rata'] }}],
+            backgroundColor: [
+              'rgba(139, 28, 19, 0.8)',
+              'rgba(59, 130, 246, 0.8)',
+            ],
+            borderColor: [
+              'rgb(139, 28, 19)',
+              'rgb(59, 130, 246)',
+            ],
+            borderWidth: 1,
+          }],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom' },
+          },
+        },
+      });
     })();
   </script>
 </body>

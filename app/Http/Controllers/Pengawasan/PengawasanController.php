@@ -104,7 +104,9 @@ class PengawasanController extends Controller
 
         Pengawasan::create($validated);
 
-        return redirect()->route('pengawasan.index')->with('success', 'Data pengawasan berhasil ditambahkan.');
+        toast_success('Data pengawasan berhasil ditambahkan.');
+
+        return redirect()->route('pengawasan.index');
     }
 
     public function show(Pengawasan $pengawasan)
@@ -159,13 +161,17 @@ class PengawasanController extends Controller
 
         $pengawasan->update($validated);
 
-        return redirect()->route('pengawasan.show', $pengawasan)->with('success', 'Data pengawasan berhasil diperbarui.');
+        toast_success('Data pengawasan berhasil diperbarui.');
+
+        return redirect()->route('pengawasan.show', $pengawasan);
     }
 
     public function destroy(Pengawasan $pengawasan)
     {
         $pengawasan->delete();
 
-        return redirect()->route('pengawasan.index')->with('success', 'Data pengawasan berhasil dihapus.');
+        toast_success('Data pengawasan berhasil dihapus.');
+
+        return redirect()->route('pengawasan.index');
     }
 }

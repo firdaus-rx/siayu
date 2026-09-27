@@ -66,6 +66,34 @@ watch(sidebarOpen, (value) => {
     localStorage.setItem(STORAGE_KEY, value ? '0' : '1');
 });
 
+// Tampilkan toast dari session flash (SweetAlert2)
+watch(() => page.props.flash, (flash) => {
+    if (flash?.success) {
+        window.Toast.fire({
+            icon: 'success',
+            title: flash.success,
+        });
+    }
+    if (flash?.error) {
+        window.Toast.fire({
+            icon: 'error',
+            title: flash.error,
+        });
+    }
+    if (flash?.warning) {
+        window.Toast.fire({
+            icon: 'warning',
+            title: flash.warning,
+        });
+    }
+    if (flash?.info) {
+        window.Toast.fire({
+            icon: 'info',
+            title: flash.info,
+        });
+    }
+}, { deep: true });
+
 function toggleSidebar() {
     sidebarOpen.value = !sidebarOpen.value;
 }

@@ -113,7 +113,9 @@ class ImportPdfController extends Controller
 
         session()->forget(['sanksi_import_results', 'sanksi_import_filename']);
 
-        return redirect()->route('sanksi-administratif.import')->with('success', "{$savedCount} usulan pencabutan perizinan berusaha berhasil disimpan/diperbarui.");
+        toast_success("{$savedCount} usulan pencabutan perizinan berusaha berhasil disimpan/diperbarui.");
+
+        return redirect()->route('sanksi-administratif.import');
     }
 
     public function clearSession()

@@ -177,6 +177,8 @@
                 </div>
             </div>
         </div>
+        <!-- Modal Hapus -->
+        <DeleteModal ref="deleteModal" title="Hapus Pengawasan" message="Apakah Anda yakin ingin menghapus data pengawasan ini? Tindakan ini tidak dapat dibatalkan." @confirm="handleDelete" />
     </AdminLayout>
 </template>
 
@@ -225,9 +227,13 @@ function risikoClass(risiko) {
     };
 }
 
+const deleteModal = ref(null);
+
+function confirmHapus() {
+    deleteModal.value.open();
+}
+
 function handleDelete() {
-    if (confirm('Yakin ingin menghapus data ini?')) {
-        router.delete(`/pengawasan/${props.pengawasan.id}`);
-    }
+    router.delete(`/pengawasan/${props.pengawasan.id}`);
 }
 </script>

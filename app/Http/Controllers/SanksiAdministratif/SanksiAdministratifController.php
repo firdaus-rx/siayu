@@ -101,7 +101,9 @@ class SanksiAdministratifController extends Controller
 
         SanksiAdministratif::create($validated);
 
-        return redirect()->route('sanksi-administratif.index')->with('success', 'Usulan pencabutan perizinan berusaha berhasil ditambahkan.');
+        toast_success('Usulan pencabutan perizinan berusaha berhasil ditambahkan.');
+
+        return redirect()->route('sanksi-administratif.index');
     }
 
     public function show(SanksiAdministratif $sanksiAdministratif)
@@ -142,13 +144,17 @@ class SanksiAdministratifController extends Controller
 
         $sanksiAdministratif->update($validated);
 
-        return redirect()->route('sanksi-administratif.show', $sanksiAdministratif)->with('success', 'Usulan pencabutan perizinan berusaha berhasil diperbarui.');
+        toast_success('Usulan pencabutan perizinan berusaha berhasil diperbarui.');
+
+        return redirect()->route('sanksi-administratif.show', $sanksiAdministratif);
     }
 
     public function destroy(SanksiAdministratif $sanksiAdministratif)
     {
         $sanksiAdministratif->delete();
 
-        return redirect()->route('sanksi-administratif.index')->with('success', 'Usulan pencabutan perizinan berusaha berhasil dihapus.');
+        toast_success('Usulan pencabutan perizinan berusaha berhasil dihapus.');
+
+        return redirect()->route('sanksi-administratif.index');
     }
 }

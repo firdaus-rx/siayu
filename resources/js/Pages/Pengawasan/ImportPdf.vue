@@ -7,13 +7,7 @@
             </div>
         </div>
 
-        <!-- Flash Message -->
-        <div v-if="$page.props.flash?.success" class="mb-5 p-4 bg-green-50 border border-green-200 rounded-xl flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center shrink-0">
-                <CheckCircle2 :size="16" class="text-green-600" />
-            </div>
-            <p class="text-sm text-green-700">{{ $page.props.flash.success }}</p>
-        </div>
+        <!-- Toast Sweet Alert ditampilkan otomatis via AdminLayout -->
 
         <!-- Upload Area -->
         <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden mb-6">

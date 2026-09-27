@@ -42,13 +42,25 @@
                 </dl></div>
             </div>
         </div>
+        <!-- Modal Hapus -->
+        <DeleteModal ref="deleteModal" title="Hapus Usulan" message="Apakah Anda yakin ingin menghapus usulan pencabutan ini? Tindakan ini tidak dapat dibatalkan." @confirm="handleDelete" />
     </AdminLayout>
 </template>
 <script setup>
+import { ref } from 'vue';
 import AdminLayout from '@/Layouts/AdminLayout.vue';
 import DetailRow from '@/Components/DetailRow.vue';
+import DeleteModal from '@/Components/DeleteModal.vue';
 import { Link, router } from '@inertiajs/vue3';
 import { ArrowLeft, Pencil, Trash2, Building2, MapPin, FileSearch, Printer } from '@lucide/vue';
 const props = defineProps({ sanksi: Object });
-function handleDelete(){ if(confirm('Yakin hapus?')) router.delete(`/sanksi-administratif/${props.sanksi.id}`); }
+const deleteModal = ref(null);
+
+function confirmHapus() {
+    deleteModal.value.open();
+}
+
+function handleDelete() {
+    router.delete(`/sanksi-administratif/${props.sanksi.id}`);
+}
 </script>

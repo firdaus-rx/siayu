@@ -4,6 +4,8 @@ import {
     Plus,
     FileUp,
     Scale,
+    MessageSquare,
+    ClipboardCheck,
 } from '@lucide/vue';
 
 /**
@@ -71,6 +73,23 @@ export const NAV_SECTIONS = [
                 icon: FileUp,
                 prefix: true,
                 badge: 'OCR',
+            },
+        ],
+    },
+    {
+        label: 'Layanan Publik',
+        items: [
+            {
+                href: '/admin/pengaduan',
+                label: 'Pengaduan Masyarakat',
+                icon: MessageSquare,
+                prefix: true,
+            },
+            {
+                href: '/admin/skm',
+                label: 'Survei Kepuasan',
+                icon: ClipboardCheck,
+                prefix: true,
             },
         ],
     },

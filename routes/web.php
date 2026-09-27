@@ -2,19 +2,41 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Pengaduan\PengaduanController;
+use App\Http\Controllers\Pengaduan\AdminPengaduanController;
 use App\Http\Controllers\Pengawasan\ImportPdfController;
 use App\Http\Controllers\Pengawasan\PengawasanController;
 use App\Http\Controllers\SanksiAdministratif\ImportPdfController as SanksiImportPdfController;
 use App\Http\Controllers\SanksiAdministratif\RekapController;
 use App\Http\Controllers\SanksiAdministratif\SanksiAdministratifController;
 use App\Http\Controllers\SanksiAdministratif\Sp1Controller;
+use App\Http\Controllers\Skm\SkmController;
+use App\Http\Controllers\Skm\AdminSkmController;
+use App\Http\Controllers\StatistikController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    if (auth()->check()) {
-        return redirect()->route('dashboard');
-    }
-    return view('guest.welcome');
+    $pengaduanStats = [
+        'total' => \App\Models\Pengaduan::count(),
+        'pending' => \App\Models\Pengaduan::where('status', 'pending')->count(),
+        'proses' => \App\Models\Pengaduan::where('status', 'proses')->count(),
+        'selesai' => \App\Models\Pengaduan::where('status', 'selesai')->count(),
+        'tidak_dapat_ditindaklanjuti' => \App\Models\Pengaduan::where('status', 'tidak_dapat_ditindaklanjuti')->count(),
+    ];
+
+    $skmTotal = \App\Models\Skm::count();
+    $skmStats = [
+        'total' => $skmTotal,
+        'rata_rata' => $skmTotal > 0 ? round(\App\Models\Skm::query()->selectRaw('
+            ROUND(AVG(
+                (p1_kesesuaian_persyaratan + p2_kemudahan_prosedur + p3_jadwal_waktu +
+                 p4_tarif_biaya + p5_produk_hasil + p6_kompetensi_petugas +
+                 p7_perilaku_petugas + p8_sarana_prasarana + p9_penanganan_pengaduan) / 9
+            ), 2) as rata_rata
+        ')->value('rata_rata'), 2) : 0,
+    ];
+
+    return view('guest.welcome', compact('pengaduanStats', 'skmStats'));
 })->name('welcome');
 
 // Auth — hanya login, tanpa register
@@ -67,6 +89,31 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::resource('/sanksi-administratif', SanksiAdministratifController::class)->parameters(['sanksi-administratif' => 'sanksiAdministratif']);
+});
+
+// ── Pengaduan Masyarakat (Public) ──
+Route::get('/pengaduan', [PengaduanController::class, 'create'])->name('pengaduan.create');
+Route::post('/pengaduan', [PengaduanController::class, 'store'])->name('pengaduan.store');
+
+// ── Survei Kepuasan Masyarakat / SKM (Public) ──
+Route::get('/skm', [SkmController::class, 'create'])->name('skm.create');
+Route::post('/skm', [SkmController::class, 'store'])->name('skm.store');
+
+// ── Admin: Pengaduan Masyarakat ──
+Route::prefix('admin/pengaduan')->name('admin.pengaduan.')->middleware('auth')->group(function () {
+    Route::get('/', [AdminPengaduanController::class, 'index'])->name('index');
+    Route::get('/{pengaduan}', [AdminPengaduanController::class, 'show'])->name('show');
+    Route::patch('/{pengaduan}/status', [AdminPengaduanController::class, 'updateStatus'])->name('status.update');
+    Route::get('/{pengaduan}/lampiran/{jenis}', [AdminPengaduanController::class, 'downloadLampiran'])->name('lampiran.download');
+    Route::get('/{pengaduan}/lampiran/{jenis}/preview', [AdminPengaduanController::class, 'previewLampiran'])->name('lampiran.preview');
+    Route::delete('/{pengaduan}', [AdminPengaduanController::class, 'destroy'])->name('destroy');
+});
+
+// ── Admin: SKM ──
+Route::prefix('admin/skm')->name('admin.skm.')->middleware('auth')->group(function () {
+    Route::get('/', [AdminSkmController::class, 'index'])->name('index');
+    Route::get('/{skm}', [AdminSkmController::class, 'show'])->name('show');
+    Route::delete('/{skm}', [AdminSkmController::class, 'destroy'])->name('destroy');
 });
 
 Route::get('/phpinfo', function() {
